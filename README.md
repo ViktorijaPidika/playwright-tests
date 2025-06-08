@@ -6,7 +6,6 @@ This project contains automated end-to-end tests written with **Playwright** and
 
 - **Node.js** is installed (recommended version: >= 16.x)  
 - **npm** or **yarn** is installed and working
-- **IDE** is downloaded
 
 ## Setup Instructions
 
