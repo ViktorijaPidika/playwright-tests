@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
-import { UAPRegistryPage } from '../../../../pages/uapRegistry.page'
-import { fillNewObservationForm } from '../../../../utils/uapRegistry.helper';
+import { UAPRegistryPage } from '../../../pages/uapRegistry.page'
+import { fillNewObservationForm } from '../../../utils/uapRegistry.helper';
 
 test.describe('UAP Registry with missing Location input', () => {
 

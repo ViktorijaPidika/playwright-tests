@@ -1,13 +1,14 @@
 import { test, expect } from '@playwright/test'
-import { UAPRegistryPage } from '../../../../pages/uapRegistry.page'
-import { fillNewObservationForm } from '../../../../utils/uapRegistry.helper';
+import { UAPRegistryPage } from '../../../pages/uapRegistry.page'
+import { fillNewObservationForm } from '../../../utils/uapRegistry.helper';
 
-test.describe('UAP Registry with missing Image URL input', () => {
+test.describe('UAP Registry with valid inputs', () => {
 
     let uapRegistryPage: UAPRegistryPage;
     const testData = {
         location: 'Riga, Latvia',
         date: '2025-04-06',
+        image: 'https://i.ytimg.com/vi/Pws0Om4VquU/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAhE0tn0U24HIjpIHKZ9H6A0ijurA',
         description: `There were strange noises and bright lights outside the office, and the office's only developer has gone missing.`
     };
 
@@ -20,7 +21,7 @@ test.describe('UAP Registry with missing Image URL input', () => {
         await expect(uapRegistryPage.newObservationDropDown).toBeVisible();
     });
 
-    test('Verify an observation can not be added with the "Image URL" field empty', async () => {
+    test('Verify observation can be added with all fields filled', async () => {
         await test.step('Fill in the "New Observation" form', async () => {
             await uapRegistryPage.newObservationDropDown.click();
             await expect(uapRegistryPage.newObservationForm).toBeVisible();
@@ -29,13 +30,20 @@ test.describe('UAP Registry with missing Image URL input', () => {
             await uapRegistryPage.addButton.click();
         });
 
-        await test.step('Verify new registry has NOT been created', async () => {
-            // Warning message is not present upon unsuccessful submition. Once issue resolved:
-            // add additional assertation here that checks if the warning message was returned
+        await test.step('Verify new registry has been created', async () => {
+            // Success message is not present upon successful submition. Once issue resolved:
+            // add additional assertation here that checks if the success message was returned
 
             await expect(uapRegistryPage
                 .findObservationByTitle(testData.location, testData.date).last()
-            ).not.toBeVisible();
+            ).toBeVisible();
         });
+    });
+
+    test.afterEach(async ({ }) => {
+        await uapRegistryPage
+            .findObservationByTitle(testData.location, testData.date).last()
+            .locator('[value="delete"]')
+            .click();
     });
 })

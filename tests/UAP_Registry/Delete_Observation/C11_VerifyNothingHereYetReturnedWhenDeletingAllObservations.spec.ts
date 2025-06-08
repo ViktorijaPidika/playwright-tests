@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { UAPRegistryPage } from '../../../../src/pages/uapRegistryPage'
+import { UAPRegistryPage } from '../../../pages/uapRegistry.page'
 
 test.describe('Deleting all UAP registries', () => {
 

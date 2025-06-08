@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test'
-import { UAPRegistryPage } from '../../../../pages/uapRegistry.page'
-import { fillNewObservationForm } from '../../../../utils/uapRegistry.helper';
+import { UAPRegistryPage } from '../../../pages/uapRegistry.page'
+import { fillNewObservationForm } from '../../../utils/uapRegistry.helper';
 
-test.describe('UAP Registry with valid inputs', () => {
+test.describe('Reading an UAP Registry', () => {
 
     let uapRegistryPage: UAPRegistryPage;
     const testData = {
@@ -21,8 +21,8 @@ test.describe('UAP Registry with valid inputs', () => {
         await expect(uapRegistryPage.newObservationDropDown).toBeVisible();
     });
 
-    test('Verify observation can be added with all fields filled', async () => {
-        await test.step('Fill in the "New Observation" form', async () => {
+    test('Verify user can read an existing observation', async () => {
+        await test.step('Add new observation', async () => {
             await uapRegistryPage.newObservationDropDown.click();
             await expect(uapRegistryPage.newObservationForm).toBeVisible();
 
@@ -30,13 +30,10 @@ test.describe('UAP Registry with valid inputs', () => {
             await uapRegistryPage.addButton.click();
         });
 
-        await test.step('Verify new registry has been created', async () => {
-            // Success message is not present upon successful submition. Once issue resolved:
-            // add additional assertation here that checks if the success message was returned
-
-            await expect(uapRegistryPage
-                .findObservationByTitle(testData.location, testData.date).last()
-            ).toBeVisible();
+        await test.step('Verify registry can be read', async () => {
+            await expect(uapRegistryPage.observationArticleTitle.last()).toHaveText(`${testData.location} (${testData.date})`);
+            await expect(uapRegistryPage.observationArticleImage.last()).toBeVisible();
+            await expect(uapRegistryPage.observationArticleText.last()).toHaveText(`${testData.description}`);
         });
     });
 

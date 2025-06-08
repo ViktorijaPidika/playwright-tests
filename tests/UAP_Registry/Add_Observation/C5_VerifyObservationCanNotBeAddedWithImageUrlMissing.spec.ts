@@ -1,13 +1,13 @@
 import { test, expect } from '@playwright/test'
-import { UAPRegistryPage } from '../../../../pages/uapRegistry.page'
-import { fillNewObservationForm } from '../../../../utils/uapRegistry.helper';
+import { UAPRegistryPage } from '../../../pages/uapRegistry.page'
+import { fillNewObservationForm } from '../../../utils/uapRegistry.helper';
 
-test.describe('UAP Registry with missing Date input', () => {
+test.describe('UAP Registry with missing Image URL input', () => {
 
     let uapRegistryPage: UAPRegistryPage;
     const testData = {
         location: 'Riga, Latvia',
-        image: 'https://i.ytimg.com/vi/Pws0Om4VquU/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAhE0tn0U24HIjpIHKZ9H6A0ijurA',
+        date: '2025-04-06',
         description: `There were strange noises and bright lights outside the office, and the office's only developer has gone missing.`
     };
 
@@ -20,7 +20,7 @@ test.describe('UAP Registry with missing Date input', () => {
         await expect(uapRegistryPage.newObservationDropDown).toBeVisible();
     });
 
-    test('Verify an observation can not be added with the "Date" field empty', async () => {
+    test('Verify an observation can not be added with the "Image URL" field empty', async () => {
         await test.step('Fill in the "New Observation" form', async () => {
             await uapRegistryPage.newObservationDropDown.click();
             await expect(uapRegistryPage.newObservationForm).toBeVisible();
@@ -34,7 +34,7 @@ test.describe('UAP Registry with missing Date input', () => {
             // add additional assertation here that checks if the warning message was returned
 
             await expect(uapRegistryPage
-                .checkPartialObservationTitle(testData.location).last()
+                .findObservationByTitle(testData.location, testData.date).last()
             ).not.toBeVisible();
         });
     });
