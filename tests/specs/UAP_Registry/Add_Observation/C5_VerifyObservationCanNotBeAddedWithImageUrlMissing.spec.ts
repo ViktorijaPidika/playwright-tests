@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test'
 import { UAPRegistryPage } from '../../../../src/pages/uapRegistryPage'
 import { fillNewObservationForm } from '../../../../src/helpers/uapRegistryHelper';
 
-test.describe('UAP Registry with missing Date input', () => {
+test.describe('UAP Registry with missing Image URL input', () => {
 
     let uapRegistryPage: UAPRegistryPage;
     const testData = {
