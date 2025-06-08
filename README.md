@@ -31,13 +31,14 @@ Run tests for a specific browser (e.g., Firefox): `npx playwright test --project
 Run a specific test file: `npx playwright test tests/example.spec.ts`
 
 ##Project structure
-
-├── tests/                 # Test specs <br>
-│   └── example.spec.ts <br>
-├── pages/                 # Page Object Models <br>
-│   └── home.page.ts <br>
-├── utils/                 # Helper utilities <br>
-├── playwright.config.ts   # Playwright configuration <br>
-├── package.json           # npm configuration <br>
-├── tsconfig.json          # TypeScript configuration <br>
+```bash
+├── tests/                 # Test specs
+│   └── example.spec.ts
+├── pages/                 # Page Object Models
+│   └── home.page.ts
+├── utils/                 # Helper utilities
+├── playwright.config.ts   # Playwright configuration
+├── package.json           # npm configuration
+├── tsconfig.json          # TypeScript configuration
 └── README.md
+
