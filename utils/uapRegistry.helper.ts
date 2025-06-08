@@ -1,5 +1,5 @@
 import { Page, expect } from '@playwright/test';
-import { UAPRegistryPage } from '../pages/uapRegistryPage';
+import { UAPRegistryPage } from '../pages/uapRegistry.page';
 
 export interface Fields {
     location?: string;
