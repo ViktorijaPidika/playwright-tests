@@ -24,10 +24,10 @@ This project contains automated end-to-end tests written with **Playwright** and
 
 ## Running tests
 
-Run all tests: `npx playwright test`
-Run tests in headed mode for debugging: `npx playwright test --headed`
-Run tests for a specific browser (e.g., Firefox): `npx playwright test --project=firefox`
-Run a specific test file: `npx playwright test tests/example.spec.ts`
+Run all tests: `npx playwright test` <br>
+Run tests in headed mode for debugging: `npx playwright test --headed` <br>
+Run tests for a specific browser (e.g., Firefox): `npx playwright test --project=firefox` <br>
+Run a specific test file: `npx playwright test tests/example.spec.ts` <br>
 
 ##Project structure
 ```bash
