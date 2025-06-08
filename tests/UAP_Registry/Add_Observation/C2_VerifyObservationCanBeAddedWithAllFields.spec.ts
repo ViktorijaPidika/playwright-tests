@@ -9,7 +9,7 @@ test.describe('UAP Registry with valid inputs', () => {
         location: 'Riga, Latvia',
         date: '2025-04-06',
         image: 'https://i.ytimg.com/vi/Pws0Om4VquU/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAhE0tn0U24HIjpIHKZ9H6A0ijurA',
-        description: `There were strange noises and bright lights outside the office, and the office's only developer has gone missing.`
+        description: 'There were strange noises and bright lights outside the office, and the office\'s only developer has gone missing.',
     };
 
     test.beforeEach(async ({ page }) => {

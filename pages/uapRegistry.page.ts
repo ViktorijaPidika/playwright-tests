@@ -21,8 +21,6 @@ export class UAPRegistryPage {
     get observationArticleImage(): Locator { return this.page.locator('[data-testid="observations-container-div"] article img'); }
     get observationArticleText(): Locator { return this.page.locator('[data-testid="observations-container-div"] article p'); }
 
-
-
     openUapRegistryPage() {
         return this.page.goto('http://localhost:8000/');
     }

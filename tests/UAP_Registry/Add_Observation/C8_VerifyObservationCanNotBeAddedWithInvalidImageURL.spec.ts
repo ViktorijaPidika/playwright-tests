@@ -9,7 +9,7 @@ test.describe('UAP Registry with invalid URL', () => {
         location: 'Riga, Latvia',
         date: '12345-04-06',
         image: '1',
-        description: `There were strange noises and bright lights outside the office, and the office's only developer has gone missing.`
+        description: 'There were strange noises and bright lights outside the office, and the office\'s only developer has gone missing.',
     };
 
     test.beforeEach(async ({ page }) => {

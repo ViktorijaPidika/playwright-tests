@@ -8,7 +8,7 @@ test.describe('UAP Registry with missing Image URL input', () => {
     const testData = {
         location: 'Riga, Latvia',
         date: '2025-04-06',
-        description: `There were strange noises and bright lights outside the office, and the office's only developer has gone missing.`
+        description: 'There were strange noises and bright lights outside the office, and the office\'s only developer has gone missing.',
     };
 
     test.beforeEach(async ({ page }) => {
