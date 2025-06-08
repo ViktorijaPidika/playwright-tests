@@ -2,14 +2,13 @@
 
 This project contains automated end-to-end tests written with **Playwright** and **TypeScript**. It aims to provide a scalable and maintainable framework for testing web applications.
 
-## Setup Instructions
-
 ## Preconditions
 
 - **Node.js** is installed (recommended version: >= 16.x)  
 - **npm** or **yarn** is installed and working
 - **IDE** is downloaded
 
+## Setup Instructions
 
 1. **Clone the repository**
 
